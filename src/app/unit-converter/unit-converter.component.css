@@ -1,0 +1,141 @@
+/* 1. Center on screen and handle the background */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Takes up the full height of the window */
+  background-color: #f0f2f5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: sans-serif;
+  margin: -8px; /* Removes default browser margins if they exist */
+}
+
+/* 2. Make it bigger */
+.converter-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 50px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+/* Form Controls Styling */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+select, input {
+  font-size: 1.2rem;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+select:focus, input:focus {
+  border-color: #007bff;
+}
+
+/* The Toggle Button */
+.theme-toggle {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  background-color: #e4e6eb;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+/* 3. The Result Area */
+.result-box {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+.result-box h3 {
+  margin: 0;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+/* =========================================
+   4. DARK MODE OVERRIDES
+   ========================================= */
+.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-theme .converter-container {
+  background-color: #1e1e1e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.dark-theme select, .dark-theme input {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+.dark-theme select:focus, .dark-theme input:focus {
+  border-color: #66b2ff;
+}
+
+.dark-theme .theme-toggle {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.dark-theme .result-box {
+  background-color: #2c2c2c;
+  border-color: #444;
+}
+
+.dark-theme .result-box h3 {
+  color: #66b2ff;
+}
+
+.save-btn {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+/* Optional Dark Mode adjustment */
+.dark-theme .save-btn {
+  background-color: #198754;
+}

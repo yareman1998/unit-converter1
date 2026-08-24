@@ -1,0 +1,51 @@
+<!-- The wrapper dynamically adds the 'dark-theme' class based on the toggle -->
+<div class="wrapper" [class.dark-theme]="isDarkMode">
+  <div class="converter-container">
+    
+    <div class="header-row">
+      <h2>Unit Converter</h2>
+      <!-- The Toggle Switch -->
+      <button class="theme-toggle" (click)="toggleTheme()">
+        {{ isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+      </button>
+    </div>
+    
+    <div class="controls">
+      <!-- Category Selection -->
+      <select [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+        <option value="length">Length</option>
+        <option value="weight">Weight</option>
+        <option value="temperature">Temperature</option>
+      </select>
+
+      <!-- Input and Unit Selection -->
+      <input type="number" [(ngModel)]="inputValue" placeholder="Enter value" />
+      
+      <select [(ngModel)]="fromUnit">
+        <option *ngFor="let unit of availableUnits" [value]="unit">{{ unit }}</option>
+      </select>
+      
+      <span> to </span>
+      
+      <select [(ngModel)]="toUnit">
+        <option *ngFor="let unit of availableUnits" [value]="unit">{{ unit }}</option>
+      </select>
+    </div>
+
+    <!-- The Output using your Custom Pipe -->
+    <div class="result-box">
+      <h3>Result: 
+        {{ inputValue | unitConverter:selectedCategory:fromUnit:toUnit | number:'1.2-2' }} 
+        {{ toUnit }}
+      </h3>
+    </div>
+
+    <!-- Add this below your result box -->
+    <div style="text-align: center; margin-top: 20px;">
+      <button class="save-btn" (click)="saveToDatabase()">
+        💾 Save Conversion
+      </button>
+    </div>
+    
+  </div>
+</div>
